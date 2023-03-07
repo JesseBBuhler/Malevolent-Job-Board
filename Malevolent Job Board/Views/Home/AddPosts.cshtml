@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Listings";
+}
+
+@model Malevolent_Job_Board.Models.Post
+
+<h1>Post a Position</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="PostID" />
+    <label asp-for="PositionTitle">Position Title</label>
+    <input asp-for="PositionTitle"/>
+    <label asp-for="Company">Company</label>
+    <input asp-for="Company"/>
+    <label asp-for="PositionTypeID">Position Type</label>
+    <select asp-for="PositionTypeID">
+        <option value="">Select Postion Type</option>
+        @{ 
+            foreach (string pt in ViewBag.PostTypes) {
+                <option value="pt">pt</option>
+            }
+        }
+    </select>
+    <label asp-for="Description">Description</label>
+    <input />
+    <label asp-for="Salary">Salary</label>
+    <input />
+    <button type="submit">Submit</button>
+</form>
