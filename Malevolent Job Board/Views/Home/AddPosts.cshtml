@@ -19,8 +19,8 @@
     <select asp-for="PositionTypeID">
         <option value="">Select Postion Type</option>
         @{ 
-            foreach (string pt in ViewBag.PostTypes) {
-                <option value="pt">pt</option>
+            foreach (var pt in ViewBag.Types) {
+                <option value="pt.PositionTypeID">@pt.PositionTypeDesc</option>
             }
         }
     </select>

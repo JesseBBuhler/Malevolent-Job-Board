@@ -13,10 +13,12 @@ namespace Malevolent_Job_Board.Models
 
         }
 
+        //Three tables in the database for right now. Applications -> Posts -> PositionTypes
         public DbSet<PositionType> PositionTypes { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Application> Applications { get; set; }
 
+        //Seeding the database
         protected override void OnModelCreating(ModelBuilder mb)
         {
             mb.Entity<PositionType>().HasData(

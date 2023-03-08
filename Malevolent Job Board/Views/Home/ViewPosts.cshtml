@@ -5,6 +5,16 @@
     ViewData["Title"] = "Listings";
 }
 
+@model IQueryable<Malevolent_Job_Board.Models.Post>
+
 <h1>Job Listings</h1>
 <h2>Page Under construction</h2>
 <h3>Please come back soon</h3>
+
+<ul>
+    @foreach (var p in Model)
+    {
+    <li>@p.PositionTitle</li>
+    }
+</ul>
+

@@ -9,6 +9,11 @@ namespace Malevolent_Job_Board.Controllers
 {
     public class HomeController : Controller
     {
+        private JobBoardContext Context;
+        public HomeController(JobBoardContext temp)
+        {
+            Context = temp;
+        }
         public IActionResult Index()
         {
             return View();
@@ -21,14 +26,16 @@ namespace Malevolent_Job_Board.Controllers
 
         public IActionResult ViewPosts()
         {
-            return View();
+            IQueryable<Post> Posts = Context.Posts;
+            return View(Posts);
         }
 
+        [HttpGet]
         public IActionResult AddPosts()
         {
-            List<string> PostTypes = new List<string>(){ "Full Time", "Part Time", "Internship", "Contract" };
-            ViewBag.PostTypes = PostTypes;
+            ViewBag.Types = Context.PositionTypes.ToList();
             var post = new Post();
+
             return View(post);
         }
     }
